@@ -2,23 +2,23 @@ import { Entity, PrimaryGeneratedColumn, Column } from 'typeorm';
 
 export class EmpleadosModelo {
   @PrimaryGeneratedColumn()
-  cod_empleado: number;
+  employee_id: number;
 
-  @Column()
-  nombre: Date;
+  @Column({name:'name'})
+  name: Date;
 
-  @Column()
-  apellidos: string;
+  @Column({lastName:'last_name'})
+  lastName: string;
 
-  @Column()
-  direccion: string;
+  @Column({address:'address'})
+  address: string;
 
-  @Column()
-  telefono: number;
+  @Column({phone:'phone'})
+  phone: number;
 
-  @Column()
-  correo: string;
+  @Column({email:'email'})
+  email: string;
 
-  @Column()
-  Rol: string;
+  @Column({rol:'rol'})
+  rol: string;
 }
