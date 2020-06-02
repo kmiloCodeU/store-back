@@ -1,4 +1,4 @@
-import { ComprasModelo } from './compras.modelo';
+import { ComprasModelo } from '../compras.entity';
 
 describe('ComprasModelo', () => {
   it('should be defined', () => {
