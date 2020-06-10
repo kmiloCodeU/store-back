@@ -1,20 +1,20 @@
 import { Entity, PrimaryGeneratedColumn, Column } from 'typeorm';
 
 @Entity('productos')
-export class ProductosModelo {
+export class ProductsModelo {
   @PrimaryGeneratedColumn()
   cod_Producto: number;
 
-  @Column()
+  @Column('varchar')
   nombre: string;
 
-  @Column()
+  @Column('int')
   precio_Costo: number;
 
-  @Column()
+  @Column('int')
   precio_Venta: number;
 
-  @Column()
+  @Column('text')
   descripcion: string;
 
   @Column()

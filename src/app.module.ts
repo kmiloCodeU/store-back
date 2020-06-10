@@ -6,11 +6,13 @@ import { DatabaseModule } from './database/database.module';
 import { ConfigService } from './config/config.service';
 import { Configuration } from './config/config.keys';
 import { ComprasModule } from './modules/compras/compras.module';
+import { ProductsService } from './modules/productos/products/products.service';
+import { ProductsController } from './modules/productos/products/products.controller';
 
 @Module({
   imports: [ConfigModule, DatabaseModule, ComprasModule],
-  controllers: [AppController],
-  providers: [AppService],
+  controllers: [AppController, ProductsController],
+  providers: [AppService, ProductsService],
 })
 export class AppModule {
   static port: number | string;
