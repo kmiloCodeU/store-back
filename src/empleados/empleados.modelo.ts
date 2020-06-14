@@ -1,26 +1,24 @@
-import { Entity, PrimaryGeneratedColumn, Column } from "typeorm";
+import { Entity, PrimaryGeneratedColumn, Column } from 'typeorm';
 
 export class EmpleadosModelo {
-    @PrimaryGeneratedColumn()
-    cod_empleado:number;
+  @PrimaryGeneratedColumn()
+  cod_empleado: number;
 
-    @Column()
-    Nombre:Date;
+  @Column()
+  nombre: Date;
 
-    @Column()
-    Apellidos:string;
+  @Column()
+  apellidos: string;
 
-    @Column()
-    Direccion:string;
+  @Column()
+  direccion: string;
 
-    @Column()
-    Telefono:number;
+  @Column()
+  telefono: number;
 
-    @Column()
-    correo:string;
+  @Column()
+  correo: string;
 
-    @Column()
-    Rol:string;
-
-
+  @Column()
+  Rol: string;
 }
