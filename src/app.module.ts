@@ -1,35 +1,18 @@
 import { Module } from '@nestjs/common';
-import { AppController } from './app.controller';
-import { AppService } from './app.service';
-import { TypeOrmModule } from '@nestjs/typeorm';
-import { ComprasModelo } from './compras/compras.modelo';
-import { EmpleadosModelo } from './empleados/empleados.modelo';
-import { InventariosModelo } from './inventarios/inventarios.modelo';
-import { ProductosModelo } from './productos/productos.modelo';
-import { ProveedoresModelo } from './proveedores/proveedores.modelo';
-import { VentasModelo } from './ventas/ventas.modelo';
+import { ConfigModule } from './config/config.module';
+import { DatabaseModule } from './database/database.module';
+import { ConfigService } from './config/config.service';
+import { Configuration } from './config/config.keys';
+import { ProductModule } from './modules/product/product.module';
 
 @Module({
-  imports: [
-    TypeOrmModule.forRoot({
-      type: 'mysql',
-      host: 'localhost',
-      port: 3306,
-      username: 'nest',
-      password: '123',
-      database: 'nestjs_app',
-      entities: [
-        ComprasModelo,
-        EmpleadosModelo,
-        InventariosModelo,
-        ProductosModelo,
-        ProveedoresModelo,
-        VentasModelo
-      ],
-      synchronize: true,
-    }),
-  ],
-  controllers: [AppController],
-  providers: [AppService],
+  imports: [ConfigModule, DatabaseModule, ProductModule],
+
 })
-export class AppModule {}
+export class AppModule {
+  static port: number | string;
+  constructor(private readonly _configService: ConfigService) {
+    AppModule.port = this._configService.get(Configuration.PORT);
+    console.log('localhost', AppModule.port);
+  }
+}
