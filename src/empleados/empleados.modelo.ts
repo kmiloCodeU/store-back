@@ -2,6 +2,7 @@ import { Entity, PrimaryGeneratedColumn, Column } from 'typeorm';
 
 export class EmpleadosModelo {
   @PrimaryGeneratedColumn()
+  
   cod_empleado: number;
 
   @Column()
