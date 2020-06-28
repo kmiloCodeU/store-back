@@ -1,6 +1,10 @@
-languaje: 
-    angular
-node: 
-    "^10.19.0"
-install: 
-    npm i
+language: node_js
+node_js:
+  - "12"
+sudo: required
+services:
+  - docker
+before_script:
+  - npm install
++ script:
++   - npm test
