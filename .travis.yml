@@ -16,3 +16,10 @@ deploy:
     local_dir: STORE-BACK/dist/
     on:
         branch: master
+        
+ after_success:	    provider: pages
+  - docker login -u $DOCKER_USER -p $DOCKER_PASSWORD	    skip_cleanup: true
+  - docker tag back $DOCKER_USER/back:$TRAVIS_BUILD_NUMBER	    github_token: $GITHUB_TOKEN
+  - docker push $DOCKER_USER/back:$TRAVIS_BUILD_NUMBER	    local_dir: STORE-BACK/dist/
+  - docker tag back $DOCKER_USER/back:latest	    on:
+  - docker push $DOCKER_USER/back:latest
