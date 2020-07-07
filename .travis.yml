@@ -1,10 +1,6 @@
 language: node_js
 node_js:
   - "12.18.0"
-before_install: cd ./Proyectos_integracion/store-back
-cache:
-directories:
-    - ./STORE-BACK/node_modules
 install:
     - npm install
 script:
