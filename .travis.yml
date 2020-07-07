@@ -13,6 +13,9 @@ install:
   - npm install
 script:
   - npm build
+  - docker build -t rafaelrb40/store-back
+  - docker tag rafaelrb40/store-back registry.heroku.com/$HEROKU_APP_NAME/web
+
 
 deploy:
   provider: script
@@ -22,4 +25,6 @@ deploy:
     heroku container:release web --app $HEROKU_APP_NAME
   on:
     branch: master
+
+
 
