@@ -10,16 +10,16 @@ export class EmployeeEntity {
     @Column({name:'document_number'})
     documentnumber: number
   
-    @Column({phone:'phone'})
+    @Column({name:'phone'})
     phone: number
   
-    @Column({email: 'email'})
+    @Column({name: 'email'})
     email: string
 
-    @Column({birthdate: 'birth_date'})
+    @Column({name: 'birth_date'})
     birthdate: Date
 
-    @Column({password: 'password'})
+    @Column({name: 'password'})
     password: string
   
   }
