@@ -6,5 +6,6 @@ import { SalesController } from './sales.controller';
 @Module({
   imports: [TypeOrmModule.forFeature([SalesRepository])],
   controllers:[SalesController]
+  
 })
 export class SalesModule {}
