@@ -10,7 +10,7 @@ export const databaseProviders = [
     inject: [ConfigService],
     async useFactory(config: ConfigService) {
       return {
-        ssl: false,
+        ssl: true,
         type: 'postgres' as 'postgres',
         database: 'd41rrig1cp6nr2',
         host: 'ec2-35-172-73-125.compute-1.amazonaws.com',
