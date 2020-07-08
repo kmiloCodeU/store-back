@@ -10,13 +10,12 @@ export const databaseProviders = [
     inject: [ConfigService],
     async useFactory(config: ConfigService) {
       return {
-        ssl: true,
+        ssl: false,
         type: 'postgres' as 'postgres',
-        database: 'd41rrig1cp6nr2',
-        host: 'ec2-35-172-73-125.compute-1.amazonaws.com',
-        username: 'iejhmxpkmpbbpv',
-        password: 'd47286c32c1fe6adc8e7e516dc73d61549259d47c66805d8264334e0ffcc7122',
-        port: 5432,
+        database: config.get(Configuration.DATABASE),
+        host: config.get(Configuration.HOST),
+        username: config.get(Configuration.USERNAME),
+        password: config.get(Configuration.PASSWORD),
         entities: [__dirname + '/../**/*.entity{.ts,.js}'],
         migrations: [__dirname + '/migrations/*{.ts,.js}'],
         migrationsRun: true,
